@@ -9,21 +9,21 @@
 <ion-content [fullscreen]="true">
   <ion-grid>
     <ion-row>
-      <ion-label id="timer">00:00:00</ion-label>
+      <ion-label id="timer">{{ timerUnix | date:'hh:mm:ss' }}</ion-label>
     </ion-row>
     <ion-row>
-      <div id="timerActive">
-        <ion-button color="success">
+      <div id="timerActive" *ngIf="!timerActive">
+        <ion-button color="success" (click)="switchTimer()">
           <ion-icon name="play" slot="start"></ion-icon>
           INICIAR
         </ion-button>
       </div>
-      <div id="timerInactive">
-        <ion-button color="warning">
+      <div id="timerInactive" *ngIf="timerActive">
+        <ion-button color="warning" (click)="pauseTimer()">
           <ion-icon name="pause" slot="start"></ion-icon>
           PAUSAR
         </ion-button>
-        <ion-button>
+        <ion-button (click)="switchTimer()">
           <ion-icon name="stop" slot="start"></ion-icon>
           PARAR
         </ion-button>
