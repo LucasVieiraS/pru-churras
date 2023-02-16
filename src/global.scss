@@ -24,3 +24,33 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap');
+
+* {
+  font-family: 'Rubik', sans-serif;
+  --ion-font-family: 'Rubik', sans-serif;
+}
+
+ion-content {
+  overflow: hidden;
+}
+
+ion-grid {
+  width: min(100%, 100vw);
+  height: min(100%, 80vh);
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
