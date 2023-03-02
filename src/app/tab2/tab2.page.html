@@ -9,7 +9,7 @@
 <ion-content [fullscreen]="true">
   <ion-grid>
     <ion-row>
-      <ion-label id="timer">{{ timerUnix | date:'hh:mm:ss' }}</ion-label>
+      <ion-label id="timer">{{ timerString }}</ion-label>
     </ion-row>
     <ion-row>
       <div id="timerActive" *ngIf="!timerActive">

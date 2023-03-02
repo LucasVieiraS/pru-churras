@@ -2,10 +2,12 @@ ion-row {
   height: 50%;
 }
 
-ion-button:nth-child(1) {
-  .button-inner {
-    transform: rotate(-180deg) !important;
-  }
+#red {
+  transform: rotate(180deg);
+}
+
+#blue {
+  transform: rotate(0deg);
 }
 
 ion-button {

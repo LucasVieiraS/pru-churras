@@ -9,10 +9,10 @@
 <ion-content [fullscreen]="true">
   <ion-grid>
     <ion-row>
-      <ion-button color="primary" expand="block" (click)="increaseRedScore()">{{ redScore }}</ion-button>
+      <ion-button id="red" color="primary" expand="block" (click)="increaseRedScore()">{{ redScore }}</ion-button>
     </ion-row>
     <ion-row>
-      <ion-button color="secondary" expand="block" (click)="increaseBlueScore()">{{ blueScore }}</ion-button>
+      <ion-button id="blue" color="secondary" expand="block" (click)="increaseBlueScore()">{{ blueScore }}</ion-button>
     </ion-row>
   </ion-grid>
 </ion-content>
