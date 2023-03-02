@@ -7,5 +7,13 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
+  <ion-grid>
+    <ion-row>
+      <ion-thumbnail class="ion-text-nowrap" (click)="flipCoin()">
+        <ion-title id="face">{{ face === 1 && 'CARA' || 'COROA'}}</ion-title>
+        <img id="coin" src="../../assets/cara.png" alt="Coin">
+        <ion-title id="press">Aperte e tente sua sorte!</ion-title>
+      </ion-thumbnail>
+    </ion-row>
+  </ion-grid>
 </ion-content>

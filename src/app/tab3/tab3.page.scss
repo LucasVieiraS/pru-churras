@@ -2,6 +2,12 @@ ion-row {
   height: 50%;
 }
 
+ion-button:nth-child(1) {
+  .button-inner {
+    transform: rotate(-180deg) !important;
+  }
+}
+
 ion-button {
   width: 100%;
   height: 100%;
