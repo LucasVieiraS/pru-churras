@@ -7,29 +7,22 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  face: number = 1;
-  debounce: boolean = false;
+  cara = 'assets/cara.png';
+  coroa = 'assets/coroa.png';
+  logo = 'assets/logo.png';
+  info = 'Clique no botão para jogar!';
+  image = this.logo;
 
   constructor() {}
 
-  randomNumber(min: number, max: number) {
-    return Math.floor(Math.random() * (max - min) + min);
-  }
-
-  flipCoin() {
-    if (this.debounce == true) return;
-    this.debounce = true;
-    const coinElement = document.getElementById('coin');
-    if (!coinElement) return;
-    coinElement.style.width = '0';
-    setTimeout(() => {
-      this.face = this.randomNumber(1, 3);
-      coinElement.setAttribute('src', this.face == 1 && '../../assets/cara.png' || '../../assets/coroa.png');
-      coinElement.style.width = '100%';
-      setTimeout(() => {
-        this.debounce = false;
-      }, 300);
-    }, 300);
+  jogarMoeda() {
+    if (Math.random() < 0.5) {
+      this.image = this.cara;
+      this.info = 'Cara!';
+    } else {
+      this.image = this.coroa;
+      this.info = 'Coroa!';
+    }
   }
 
 }
