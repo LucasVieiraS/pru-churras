@@ -7,27 +7,26 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-grid>
+  <ion-grid [fixed]="true">
     <ion-row>
-      <ion-label id="timer">{{ timerString }}</ion-label>
+      <ion-title>Valendo: {{ value }}</ion-title>
     </ion-row>
     <ion-row>
-      <div id="timerActive" *ngIf="!timerActive">
-        <ion-button color="success" (click)="switchTimer()">
-          <ion-icon name="play" slot="start"></ion-icon>
-          INICIAR
-        </ion-button>
-      </div>
-      <div id="timerInactive" *ngIf="timerActive">
-        <ion-button color="warning" (click)="pauseTimer()">
-          <ion-icon name="pause" slot="start"></ion-icon>
-          PAUSAR
-        </ion-button>
-        <ion-button (click)="switchTimer()">
-          <ion-icon name="stop" slot="start"></ion-icon>
-          PARAR
-        </ion-button>
-      </div>
+      <ion-col>
+        <ion-button (click)="increaseValueBy(this)">1</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="increaseValueBy(this)">3</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="increaseValueBy(this)">6</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="increaseValueBy(this)">9</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="increaseValueBy(this)">12</ion-button>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

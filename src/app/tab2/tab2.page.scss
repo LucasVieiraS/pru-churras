@@ -6,17 +6,13 @@
 }
 
 ion-grid {
-  @extend .flex;
+  text-align: center;
 }
 
-ion-row {
+ion-col {
   @extend .flex;
 }
 
 ion-row:nth-child(2) {
   margin-top: 1rem;
-}
-
-#timer {
-  font-size: 2rem;
 }
