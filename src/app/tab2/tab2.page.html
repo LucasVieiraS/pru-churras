@@ -1,7 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar mode="ios">
     <ion-title>
-      TEMPORIZADOR
+      TRUCO
+      <br>
+      <small>MASTER</small>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,24 +11,74 @@
 <ion-content [fullscreen]="true">
   <ion-grid [fixed]="true">
     <ion-row>
-      <ion-title>Valendo: {{ value }}</ion-title>
+      <ion-title>VALENDO: {{ value }}</ion-title>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button (click)="increaseValueBy(this)">1</ion-button>
+        <ion-button (click)="increaseValueBy($event)" color="secondary">1</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="increaseValueBy(this)">3</ion-button>
+        <ion-button (click)="increaseValueBy($event)" color="secondary">3</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="increaseValueBy(this)">6</ion-button>
+        <ion-button (click)="increaseValueBy($event)" color="secondary">6</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="increaseValueBy(this)">9</ion-button>
+        <ion-button (click)="increaseValueBy($event)" color="secondary">9</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="increaseValueBy(this)">12</ion-button>
+        <ion-button (click)="increaseValueBy($event)" color="secondary">12</ion-button>
       </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-title>Time 1</ion-title>
+        <ion-button (click)="increaseRedTeamScore()" color="success">
+          +
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-title>Time 2</ion-title>
+        <ion-button (click)="increaseBlueTeamScore()" color="success">
+          +
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-title>{{ redScore }}</ion-title>
+        <ion-button (click)="reduceRedTeamScore()">
+          -
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-title>{{ blueScore }}</ion-title>
+        <ion-button (click)="reduceBlueTeamScore()">
+          -
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-title>PARTIDAS GANHAS:</ion-title>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Time 1</strong>
+      </ion-col>
+      <ion-col>
+        {{ redMatches }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Time 2</strong>
+      </ion-col>
+      <ion-col>
+        {{ blueMatches }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-button (click)="cleanup()" id="cleanup" expand="full" color="tertiary">LIMPAR</ion-button>
     </ion-row>
   </ion-grid>
 </ion-content>

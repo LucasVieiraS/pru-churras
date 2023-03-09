@@ -13,6 +13,10 @@ ion-col {
   @extend .flex;
 }
 
-ion-row:nth-child(2) {
-  margin-top: 1rem;
+ion-row {
+  height: 12%;
+}
+
+#cleanup {
+  width: 100%;
 }
