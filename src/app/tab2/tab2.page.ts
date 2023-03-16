@@ -33,7 +33,10 @@ export class Tab2Page {
   increaseValueBy(element: any) {
     const num = parseInt(element.target.innerHTML);
     this.value = num;
+    let quack = new Audio('../../assets/quack.mp3');
+    quack.load();
     this.sendToast(`${ num === 1 && 'Truco' || num == 3 && 'Três' || num == 6 && 'Seis' || num == 9 && 'Nove' || num == 12 && 'Doze'  }! (${this.value})`.toUpperCase(), 'bar-chart');
+    quack.play();
   }
 
   increaseRedTeamScore() {
