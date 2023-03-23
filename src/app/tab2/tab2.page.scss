@@ -1,20 +1,66 @@
-.flex {
+.flex-w-dir {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 ion-grid {
   text-align: center;
 }
 
-ion-col {
+ion-toolbar + ion-toolbar {
   @extend .flex;
 }
 
+ion-col {
+  @extend .flex-w-dir;
+  width: fit-content;
+  height: fit-content;
+}
+
 ion-row {
-  height: 12%;
+  @extend .flex;
+}
+
+ion-label {
+  font-weight: bold;
+}
+
+ion-button {
+  height: 50px;
+  width: 50px;
+}
+
+#value-row {
+  padding: 0;
+  margin: 0;
+
+  ion-row {
+    ion-col {
+      @extend .flex;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  ion-button {
+  }
+}
+
+#worth-number {
+  color: rgb(226, 59, 59);
+}
+
+#score {
+  width: 100%;
 }
 
 #cleanup {
@@ -35,18 +81,4 @@ ion-row {
 
 .md-text {
   font-size: 1rem;
-}
-
-#worth-number {
-  color: rgb(123, 59, 226);
-}
-
-#score {
-  width: 100%;
-
-}
-
-ion-button {
-  height: 50px;
-  width: 50px;
 }

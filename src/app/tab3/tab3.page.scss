@@ -1,17 +1,27 @@
-ion-row {
+ion-thumbnail {
+  width: 100%;
   height: 50%;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
-#red {
-  transform: rotate(180deg);
-}
-
-#blue {
-  transform: rotate(0deg);
+ion-card {
+  width: 100%;
 }
 
 ion-button {
   width: 100%;
-  height: 100%;
-  font-size: 5rem;
+  height: 3rem;
+}
+
+#dice-input {
+  width: 100%;
+}
+
+#centered-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

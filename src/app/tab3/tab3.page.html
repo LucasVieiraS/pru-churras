@@ -1,18 +1,57 @@
 <ion-header [translucent]="true">
-  <ion-toolbar mode="ios">
+  <ion-toolbar color="warning">
     <ion-title>
       PONTUAÇÃO
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
+<ion-header>
+  <ion-toolbar>
+    <ion-segment value="all" color="dark">
+      <ion-segment-button (click)="switchPageRoute($event)" value="all">
+        <ion-label>TABLETOP</ion-label>
+      </ion-segment-button>
+      <ion-segment-button (click)="switchPageRoute($event)" value="favorites">
+        <ion-label>HISTÓRICO</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content [fullscreen]="true">
-  <ion-grid>
+  <ion-grid *ngIf="pageRoute === 'TABLETOP'">
     <ion-row>
-      <ion-button id="red" color="primary" expand="block" (click)="increaseRedScore()">{{ redScore }}</ion-button>
+      <ion-item id="dice-input">
+        <ion-label position="stacked">Tamanho do Dado</ion-label>
+        <ion-input type="number" [placeholder]="currentDiceValue" [(ngModel)]="currentDiceValue" ></ion-input>
+      </ion-item>
     </ion-row>
     <ion-row>
-      <ion-button id="blue" color="secondary" expand="block" (click)="increaseBlueScore()">{{ blueScore }}</ion-button>
+      <ion-thumbnail>
+        <img [src]="diceSource" alt="Dice">
+      </ion-thumbnail>
+    </ion-row>
+    <ion-row>
+      <ion-card>
+        <ion-card-header>
+          <ion-title class="ion-text-center" color="dark">{{ textState }}</ion-title>
+        </ion-card-header>
+        <ion-card-content id="centered-card">
+          <ion-spinner name="crescent" *ngIf="rollingDice"></ion-spinner>
+          <ion-title class="ion-text-center" *ngIf="!rollingDice">
+            {{ randomDiceValue }}
+          </ion-title>
+        </ion-card-content>
+      </ion-card>
     </ion-row>
   </ion-grid>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="dark" class="btn ion-activatable ripple-parent rectangle" (click)="rollDice()">
+    <ion-ripple-effect></ion-ripple-effect>
+    <ion-title class="ion-text-center">ROLAR DADO</ion-title>
+  </ion-toolbar>
+</ion-footer>
+

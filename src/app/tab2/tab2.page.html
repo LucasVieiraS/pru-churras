@@ -1,9 +1,7 @@
 <ion-header [translucent]="true">
-  <ion-toolbar mode="ios">
+  <ion-toolbar color="tertiary">
     <ion-title>
-      TRUCO
-      <br>
-      <small>MASTER</small>
+      TRUCO MASTER
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,55 +9,59 @@
 <ion-content [fullscreen]="true">
   <ion-grid [fixed]="true">
     <ion-row>
-      <ion-title id="worth">VALENDO: <span id="worth-number">{{ value }}</span></ion-title>
+      <ion-label id="worth">VALENDO: <span id="worth-number">{{ value }}</span></ion-label>
     </ion-row>
-    <ion-row class="row-start">
-      <ion-col>
-        <ion-button (click)="increaseValueBy($event)" shape="round" color="secondary" class="md-text" [fill]="this.value === 1 && 'outline' || 'solid'">1</ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button (click)="increaseValueBy($event)" shape="round" color="secondary" class="md-text" [fill]="this.value === 3 && 'outline' || 'solid'">3</ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button (click)="increaseValueBy($event)" shape="round" color="secondary" class="md-text" [fill]="this.value === 6 && 'outline' || 'solid'">6</ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button (click)="increaseValueBy($event)" shape="round" color="secondary" class="md-text" [fill]="this.value === 9 && 'outline' || 'solid'">9</ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button (click)="increaseValueBy($event)" shape="round" color="secondary" class="md-text" [fill]="this.value === 12 && 'outline' || 'solid'">12</ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row class="row-mid">
-      <ion-col>
-        <ion-title>TIME 1</ion-title>
-        <ion-button (click)="increaseRedTeamScore()" shape="round" color="success" class="lg-text">
-          +
-        </ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-title>TIME 2</ion-title>
-        <ion-button (click)="increaseBlueTeamScore()" shape="round" color="success" class="lg-text">
-          +
-        </ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row class="row-end">
-      <ion-col>
-        <ion-title>{{ redScore }}</ion-title>
-        <ion-button (click)="reduceRedTeamScore()" shape="round" class="lg-text">
-          -
-        </ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-title>{{ blueScore }}</ion-title>
-        <ion-button (click)="reduceBlueTeamScore()" shape="round" class="lg-text">
-          -
-        </ion-button>
-      </ion-col>
-    </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="increaseValueBy($event)" shape="round" color="secondary" class="md-text" [disabled]="this.value > 1" [fill]="this.value === 1 && 'outline' || 'solid'">1</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="increaseValueBy($event)" shape="round" color="secondary" class="md-text" [disabled]="this.value > 3" [fill]="this.value === 3 && 'outline' || 'solid'">3</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="increaseValueBy($event)" shape="round" color="secondary" class="md-text" [disabled]="this.value > 6" [fill]="this.value === 6 && 'outline' || 'solid'">6</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="increaseValueBy($event)" shape="round" color="secondary" class="md-text" [disabled]="this.value > 9" [fill]="this.value === 9 && 'outline' || 'solid'">9</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="increaseValueBy($event)" shape="round" color="secondary" class="md-text" [disabled]="this.value > 12" [fill]="this.value === 12 && 'outline' || 'solid'">12</ion-button>
+          </ion-col>
+        </ion-row>
+    <ion-card>
+      <ion-card-content>
+        <ion-row class="row-mid">
+          <ion-col>
+            <ion-label>TIME 1</ion-label>
+            <ion-button (click)="increaseRedTeamScore()" shape="round" color="success" class="lg-text">
+              +
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-label>TIME 2</ion-label>
+            <ion-button (click)="increaseBlueTeamScore()" shape="round" color="success" class="lg-text">
+              +
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row class="row-end">
+          <ion-col>
+            <ion-label>{{ redScore }}</ion-label>
+            <ion-button (click)="reduceRedTeamScore()" shape="round" class="lg-text">
+              -
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{ blueScore }}</ion-label>
+            <ion-button (click)="reduceBlueTeamScore()" shape="round" class="lg-text">
+              -
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
     <ion-row>
-      <ion-title id="matches-won">PARTIDAS GANHAS:</ion-title>
+      <ion-label id="matches-won">PARTIDAS GANHAS:</ion-label>
     </ion-row>
     <ion-row>
       <ion-card id="score">
@@ -76,25 +78,25 @@
         <ion-card-content>
           <ion-row>
             <ion-col>
-              <ion-title>{{ redMatches }}</ion-title>
+              <ion-label>{{ redMatches }}</ion-label>
             </ion-col>
             <ion-col>
-              <ion-title>{{ blueMatches }}</ion-title>
+              <ion-label>{{ blueMatches }}</ion-label>
             </ion-col>
           </ion-row>
         </ion-card-content>
       </ion-card>
       <!--
         <ion-col class="border">
-        <ion-title class="lg-text" color="secondary">TIME 1</ion-title>
+        <ion-label class="lg-text" color="secondary">TIME 1</ion-label>
       </ion-col>
       <ion-col class="border">
-        <ion-title class="lg-text" color="primary">TIME 2</ion-title>
+        <ion-label class="lg-text" color="primary">TIME 2</ion-label>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="border round-left">
-        <ion-title>{{ redMatches }}</ion-title>
+        <ion-label>{{ redMatches }}</ion-label>
       </ion-col>
       <ion-col class="border round-right">
         <ion-title>{{ blueMatches }}</ion-title>
@@ -104,9 +106,8 @@
   </ion-grid>
 </ion-content>
 
-
 <ion-footer>
-  <ion-toolbar color="tertiary" class="btn ion-activatable ripple-parent rectangle" (click)="cleanup()">
+  <ion-toolbar color="dark" class="btn ion-activatable ripple-parent rectangle" (click)="cleanup()">
     <ion-ripple-effect></ion-ripple-effect>
     <ion-title class="ion-text-center">LIMPAR</ion-title>
   </ion-toolbar>

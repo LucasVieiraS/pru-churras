@@ -30,13 +30,21 @@ export class Tab2Page {
     await toast.present();
   }
 
-  increaseValueBy(element: any) {
-    const num = parseInt(element.target.innerHTML);
-    this.value = num;
+  playQuack() {
     let quack = new Audio('../../assets/quack.mp3');
     quack.load();
-    this.sendToast(`${ num === 1 && 'Truco' || num == 3 && 'Três' || num == 6 && 'Seis' || num == 9 && 'Nove' || num == 12 && 'Doze'  }! (${this.value})`.toUpperCase(), 'bar-chart');
     quack.play();
+  }
+
+  increaseValueBy(element: any) {
+    const num = parseInt(element.target.innerHTML);
+    if (this.value == num) {
+      this.value = 1;
+    } else {
+      this.value = num;
+    }
+    this.playQuack();
+    this.sendToast(`${ num === 1 && 'Truco' || num == 3 && 'Três' || num == 6 && 'Seis' || num == 9 && 'Nove' || num == 12 && 'Doze'  }! (${this.value})`.toUpperCase(), 'bar-chart');
   }
 
   increaseRedTeamScore() {

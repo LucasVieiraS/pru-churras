@@ -1,6 +1,15 @@
-ion-tab-button {
-  --color-hover: rgb(0, 0, 0);
-  ion-icon {
-    font-size: 1.7rem;
-  }
+ion-tab-button:nth-child(1) {
+  --color-selected: #ff3838;
+}
+
+ion-tab-button:nth-child(2) {
+  --color-selected: #5260ff;
+}
+
+ion-tab-button:nth-child(3) {
+  --color-selected: #ffc409;
+}
+
+ion-icon {
+  font-size: 1.7rem;
 }
